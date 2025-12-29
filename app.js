@@ -3,6 +3,7 @@ let reset = document.querySelector("#reset");
 let newGame = document.querySelector("#newGame");
 let msg = document.querySelector("#msg");
 let winBox = document.querySelector(".winBox");
+let note = document.querySelector("#note");
 
 let turnO = true;
 
@@ -17,22 +18,28 @@ const winPatterns = [
     [2,4,6],
 ];
 
+
 const reStart = ()=>{
     turnO = true;
     startClick();
     winBox.classList.add("hide");
+    note.innerText = "X's turn";
 };
+
 
 boxes.forEach((box)=>{
     box.addEventListener("click",()=>{
+
         console.log("Clicked");
         if(turnO){
             box.innerText = "X";
             turnO = false;
+            note.innerText = "O's turn";
         }
         else{
             box.innerText = "O";
             turnO = true;
+            note.innerText = "X's turn";
         }
         box.disabled = true;
 
@@ -43,6 +50,15 @@ boxes.forEach((box)=>{
 const stopClick = ()=>{
     for(box of boxes){
         box.disabled = true;
+        leftBox();
+    }
+}
+
+const leftBox = () => {
+    for(let box of boxes){
+        if(box.innerText === ""){
+            box.style.backgroundColor = "green";
+        }
     }
 }
 
@@ -50,12 +66,14 @@ const startClick = ()=>{
     for(box of boxes){
         box.disabled = false;
         box.innerText = "";
+        box.style.backgroundColor = "white";
     }
 }
 
 const winner = (win)=>{
-    msg.innerText = `Congratulations Winner is ${win}`;
+    msg.innerText = `Congratulations !!! Winner is ${win}`;
     winBox.classList.remove("hide");
+    note.innerText = `${win} - Win`;
     stopClick();
 }
 
