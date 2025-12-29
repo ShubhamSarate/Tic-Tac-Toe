@@ -4,7 +4,7 @@
 }
 
 h1{
-    padding-top: 10vh;
+    padding: 5vh;
 }
 
 body{
@@ -27,7 +27,7 @@ body{
 }
 
 .winBox{
-    padding: 40vmin;
+    padding: 43vmin;
 }
 
 .hide{
@@ -35,7 +35,7 @@ body{
 }
 
 #container{
-    height: 70vh;
+    height: 60vh;
     display: flex;
     justify-content: center;
 }
@@ -45,6 +45,7 @@ body{
     width: 60vmin;
     display: flex;
     justify-content: center;
+    align-items: center;
     flex-wrap: wrap;
     gap: 1.5vmin;
 }
@@ -58,6 +59,20 @@ body{
     font-size: 8vmin;
     background-color: white;
     color: black;
+}
+
+.box:hover{
+    cursor: pointer;
+    background-color:aqua;
+}
+
+#note{
+    font-size: 1.5rem;
+    margin: 1rem;
+}
+
+#reset:hover, #newGame{
+    cursor: pointer;
 }
 
 #reset{
